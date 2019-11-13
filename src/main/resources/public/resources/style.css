@@ -1,0 +1,73 @@
+body{
+  background-color: #f1f1f1;}
+.connexion{
+            width: 350px;
+          	margin: 120px auto;
+          	padding: 25px 20px;
+          	background: #d45800;
+          	box-shadow: 2px 2px 4px #d16f2a;
+          	border-radius: 5px;
+          	color: #fff;
+     }
+.connexion h2{
+            margin-top: 0px;
+          	margin-bottom: 15px;
+          	padding-bottom: 5px;
+          	border-radius: 10px;
+          	border: 1px solid #d78449;
+     }
+.connexion a{
+  color: #eab692;
+}
+.connexion a:hover{
+  	text-decoration: none;
+    	color: #4f3625;
+     }
+.connexion .checkbox-inline{padding-top: 7px;}
+.btn-primary{
+  background-color: #903c00 !important;
+  border-color:  #903c00 !important;
+}
+.register-form{
+        margin: 50px auto;
+        padding: 25px 20px;
+        background: #d45800;
+        box-shadow: 2px 2px 4px #d16f2a;
+        border-radius: 5px;
+        color: #fff;
+      }
+.register-form h2{
+        margin-top: 0px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-radius: 10px;
+        border: 1px solid #d78449;
+      }
+.btn-success{
+  background-color: #903c00 !important;
+  border-color:  #903c00 !important;
+}
+.add{
+              width: 350px;
+            margin: 120px auto;
+            padding: 25px 20px;
+            background: #d45800;
+            box-shadow: 2px 2px 4px #d16f2a;
+            border-radius: 5px;
+            color: #fff;
+
+}
+
+.btn-secondary{
+  background-color: #903c00 !important;
+  border-color:  #903c00 !important;
+}
+.btn-secondary:hover{
+  background-color: #d45800 !important;
+}
+.btn-secondary:focus{
+  background-color: #d45800 !important;
+   outline: none !important;
+   box-shadow: none;
+}
+}
