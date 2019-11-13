@@ -1,0 +1,2 @@
+# eBudget
+Manage your budgets.
