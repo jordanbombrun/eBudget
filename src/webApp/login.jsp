@@ -24,7 +24,7 @@
         <button type="submit" name="submit" class="btn btn-primary pull-right">Connexion</button>
       </div>
       <div class="clearfix">
-        <a href="./register" class="pull-right">Inscrivez vous</a>
+        <a href="./insctiption.html" class="pull-right">Inscrivez vous</a>
       </div>        
     </form>
   </div>

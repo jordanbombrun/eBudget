@@ -1,8 +1,5 @@
 package com.marwane.secureapp;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,16 +10,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.security.web.util.matcher.AnyRequestMatcher;
-import org.springframework.util.AntPathMatcher;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 
 @Configuration
 @EnableWebSecurity
+
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
 	/*@Bean
 	@Override
@@ -51,16 +43,18 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
 			.csrf().disable()
 			
 			.authorizeRequests()
-				.antMatchers("login","/resources/**").permitAll()
+				.antMatchers("login","/resources/**","/register","/**").permitAll()
 				.anyRequest().authenticated()	
 				.and()
 				.formLogin()
 				.loginPage("/login").permitAll()
+				.defaultSuccessUrl("/home", true)
 				.and()
 				.logout().invalidateHttpSession(true)
 				.clearAuthentication(true)
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				.logoutSuccessUrl("/logout-success").permitAll();
+
 		
 		
 	}

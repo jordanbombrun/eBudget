@@ -6,11 +6,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 	
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String home() {
 		
 		return "home.jsp";
 	}
+	@RequestMapping("/home")
+	public String home2() {
+		
+		return "home.jsp";
+	}
+	@RequestMapping("/register")
+	public String register() {
+		
+		return "insctiption.jsp";
+	}
+	
 	@RequestMapping("/login")
 	public String loginPage() {
 		
