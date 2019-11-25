@@ -1,11 +1,13 @@
 package com.ebudget.application.model;
 
 import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 
 @Entity
@@ -20,16 +22,54 @@ public class Budget {
     private Boolean etat;
     private LocalDate datedeFin;
 
-    public Budget() {}
+    public Budget() {
+    }
 
-    public Budget(String nom, LocalDate datedeDebut, Float valeurInitiale,
-                  Float valeurReel, boolean etat, LocalDate datedeFin) {
+    public Budget(String nom, String datedeDebut, Float valeurInitiale,
+                  Float valeurReel, Boolean etat, String datedeFin) {
         this.nom = nom;
-        this.datedeDebut = datedeDebut;
+        this.setDatedeDebut(datedeDebut);
         this.valeurInitiale = valeurInitiale;
         this.valeurReel = valeurReel;
         this.etat = etat;
-        this.datedeFin = datedeFin;
+        this.setDatedeFin(datedeFin);
+    }
+
+    // Return date with correct format for JPA
+    private LocalDate parseToLocalDate(String dateString) {
+        return LocalDate.parse(dateString, DateTimeFormat.forPattern("DD/MM/YYYY"));
+    }
+
+    @Override
+    public String toString() {
+        return "Budget{" +
+                "idBudget=" + idBudget +
+                ", nom='" + nom + '\'' +
+                ", datedeDebut=" + datedeDebut +
+                ", valeurInitiale=" + valeurInitiale +
+                ", valeurReel=" + valeurReel +
+                ", etat=" + etat +
+                ", datedeFin=" + datedeFin +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Budget)) return false;
+        Budget budget = (Budget) o;
+        return Objects.equals(idBudget, budget.idBudget) &&
+                Objects.equals(nom, budget.nom) &&
+                Objects.equals(datedeDebut, budget.datedeDebut) &&
+                Objects.equals(valeurInitiale, budget.valeurInitiale) &&
+                Objects.equals(valeurReel, budget.valeurReel) &&
+                Objects.equals(etat, budget.etat) &&
+                Objects.equals(datedeFin, budget.datedeFin);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idBudget, nom, datedeDebut, valeurInitiale, valeurReel, etat, datedeFin);
     }
 
     public Long getIdBudget() {
@@ -52,8 +92,8 @@ public class Budget {
         return datedeDebut;
     }
 
-    public void setDatedeDebut(LocalDate datedeDebut) {
-        this.datedeDebut = datedeDebut;
+    public void setDatedeDebut(String datedeDebut) {
+        this.datedeDebut = parseToLocalDate(datedeDebut);
     }
 
     public Float getValeurInitiale() {
@@ -72,11 +112,11 @@ public class Budget {
         this.valeurReel = valeurReel;
     }
 
-    public boolean isEtat() {
+    public Boolean isEtat() {
         return etat;
     }
 
-    public void setEtat(boolean etat) {
+    public void setEtat(Boolean etat) {
         this.etat = etat;
     }
 
@@ -84,8 +124,8 @@ public class Budget {
         return datedeFin;
     }
 
-    public void setDatedeFin(LocalDate datedeFin) {
-        this.datedeFin = datedeFin;
+    public void setDatedeFin(String datedeFin) {
+        this.datedeFin = parseToLocalDate(datedeFin);
     }
 
 }
