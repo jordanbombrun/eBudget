@@ -4,10 +4,7 @@ import com.ebudget.application.Repository.AppliUserRepository;
 import com.ebudget.application.model.AppliUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/user")
@@ -16,9 +13,9 @@ public class AppliUserController {
     @Autowired
     AppliUserRepository appliUserRepository;
 
-    @RequestMapping(value="", method = RequestMethod.POST)
+    @PostMapping(value="")
     @ResponseBody
-    public AppliUser postUser(AppliUser user) {
+    public AppliUser postUser(@RequestBody AppliUser user) {
         return appliUserRepository.save(user);
     }
 
