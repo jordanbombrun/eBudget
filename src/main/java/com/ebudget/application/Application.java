@@ -21,10 +21,9 @@ public class Application {
 		//(String lastName, String firstName, String username, String pass, String mail) {
 		AppliUser user = new AppliUser("vbb", "jordan", "jax",
 				"motdepasse", "toto@gmail.com");
+        
+	}
 
-
-
-    }
 
     private static LocalDate parseMyDate(String date) {
         return LocalDate.parse(date, DateTimeFormat.forPattern("DD/MM/YYYY"));

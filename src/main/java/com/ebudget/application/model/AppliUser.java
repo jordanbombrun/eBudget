@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class AppliUser {
@@ -24,6 +25,36 @@ public class AppliUser {
         this.username = username;
         this.pass = pass;
         this.mail = mail;
+    }
+
+    @Override
+    public String toString() {
+        return "AppliUser{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", username='" + username + '\'' +
+                ", pass='" + pass + '\'' +
+                ", mail='" + mail + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AppliUser)) return false;
+        AppliUser appliUser = (AppliUser) o;
+        return Objects.equals(id, appliUser.id) &&
+                Objects.equals(lastName, appliUser.lastName) &&
+                Objects.equals(firstName, appliUser.firstName) &&
+                Objects.equals(username, appliUser.username) &&
+                Objects.equals(pass, appliUser.pass) &&
+                Objects.equals(mail, appliUser.mail);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, lastName, firstName, username, pass, mail);
     }
 
     public Long getId() {
